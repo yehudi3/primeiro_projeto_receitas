@@ -43,23 +43,24 @@ body{
 }
 
 /* ====== DETALHE DA RECEITA ====== */
-
 .recipe{
   display:flex;
   justify-content:center;
+  flex-wrap:wrap; /* permite empilhar no mobile */
+  gap:16px;
 }
 
 .recipe .info{
   position:relative;
   background:var(--card);
   padding:24px;
-  padding-right:670px; /* espaço da imagem */
+  padding-right:350px; /* reduz o espaço da imagem para desktop */
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   width:100%;
+  max-width:700px; /* limita largura */
 }
 
-/* imagem no canto superior direito */
 .recipe-img{
   position:absolute;
   top:24px;
@@ -86,13 +87,27 @@ pre{
 /* ====== RESPONSIVO ====== */
 @media (max-width: 800px){
   .recipe .info{
-    padding-right:24px;
+    padding-right:24px; /* remove espaço lateral grande */
   }
 
   .recipe-img{
-    position:static;
+    position:static; /* imagem empilha acima do texto */
     width:100%;
     height:220px;
     margin-bottom:16px;
+  }
+
+  .recipe{
+    justify-content:flex-start;
+  }
+}
+
+@media (max-width: 500px){
+  .recipe .info{
+    padding:16px;
+  }
+
+  .recipe-img{
+    height:180px;
   }
 }
