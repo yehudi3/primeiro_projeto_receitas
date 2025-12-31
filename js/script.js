@@ -7,7 +7,7 @@ botao.addEventListener("click", buscarReceitas);
 function buscarReceitas() {
   const nome = input.value;
 
-  fetch(`http://localhost:8080/receitas?nome=${nome}`)
+  fetch("https://backend-receitas-2.onrender.com/receitas?nome=" + nome)
     .then(response => response.json())
     .then(dados => {
       mostrarReceitas(dados);
